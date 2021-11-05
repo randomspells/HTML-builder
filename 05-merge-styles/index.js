@@ -1,4 +1,4 @@
-const { readdir, readFile, appendFile } = require('fs/promises');
+const { readdir, readFile } = require('fs/promises');
 const fs = require('fs');
 const { resolve, extname } = require('path');
 
