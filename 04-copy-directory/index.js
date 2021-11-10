@@ -1,11 +1,12 @@
-const { readdir, copyFile, mkdir } = require('fs/promises');
+const { readdir, copyFile, mkdir, rm, access } = require('fs/promises');
 const { resolve } = require('path');
 
 const oldFolderPath = resolve(__dirname, 'files');
 const newFolderPath = resolve(__dirname, 'files-copy');
 
 async function createFolder() {
-  await mkdir(newFolderPath, { recursive: true }, (err) => {
+  await rm(newFolderPath, { recursive: true, force: true });
+  await mkdir(newFolderPath, (err) => {
     if (err) console.error(err);
   });
 }
